@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour {
 	private Vector3 playerPos = new Vector3 (0, 0, 0);
 	private Quaternion playerRot;
 
+	float shipBoundaryRadius = 0.5f;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -32,7 +34,33 @@ public class PlayerMovement : MonoBehaviour {
 
 
 		// MOVE the player
-		playerPos.y += Input.GetAxis ("Vertical") * maxSpeed * Time.deltaTime;
+		Vector3 velocity = new Vector3(0, Input.GetAxis ("Vertical") * maxSpeed * Time.deltaTime, 0);
+//		playerPos.y += Input.GetAxis ("Vertical") * maxSpeed * Time.deltaTime;
+		playerPos += playerRot * velocity;
+
+
+		// RESTRICT the player to the camera's boundaries.
+
+		// Vertical bounds
+		if(playerPos.y + shipBoundaryRadius > Camera.main.orthographicSize){
+			playerPos.y = Camera.main.orthographicSize - shipBoundaryRadius;
+		}
+		if(playerPos.y - shipBoundaryRadius < -Camera.main.orthographicSize){
+			playerPos.y = -Camera.main.orthographicSize + shipBoundaryRadius;
+		}
+			
+		// Calculate the orthographic width based on the screen ratio
+		float screenRatio = (float)Screen.width / (float)Screen.height;
+		float widthOrtho = Camera.main.orthographicSize * screenRatio;
+
+		// Horizontal bounds
+		if(playerPos.x + shipBoundaryRadius > widthOrtho){
+			playerPos.x = widthOrtho - shipBoundaryRadius;
+		}
+		if(playerPos.x - shipBoundaryRadius < -widthOrtho){
+			playerPos.x = -widthOrtho + shipBoundaryRadius;
+		}
+			
 		transform.position = playerPos;
 	}
 }

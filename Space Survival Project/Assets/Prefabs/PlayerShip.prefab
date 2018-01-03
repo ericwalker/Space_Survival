@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50988591940233360}
   - component: {fileID: 61094758663931452}
   - component: {fileID: 114736308298215708}
+  - component: {fileID: 114584562887787448}
   m_Layer: 8
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -102,6 +103,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 5
   rotSpeed: 180
+--- !u!114 &114584562887787448
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1959879030492856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626e050ae0f594194ad98635b5340827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114736308298215708
 MonoBehaviour:
   m_ObjectHideFlags: 1

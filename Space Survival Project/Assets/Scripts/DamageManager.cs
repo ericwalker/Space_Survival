@@ -6,6 +6,7 @@ public class DamageManager : MonoBehaviour {
 
 	public int health = 1;
 
+	public float invulnPeriod = 0;
 	float invulnTimer = 0; // use to countdown for the invulnerable time
 	int correctLayer;
 

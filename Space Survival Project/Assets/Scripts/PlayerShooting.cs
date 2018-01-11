@@ -21,7 +21,9 @@ public class PlayerShooting : MonoBehaviour {
 			// SHOOT the bullets
 			coolDownTimer = fireDelay;
 
-			Instantiate (bulletPrefab, transform.position, transform.rotation);
+			Vector3 offset = transform.rotation * new Vector3 (0, 0.5f, 0);
+
+			Instantiate (bulletPrefab, transform.position + offset, transform.rotation);
 		}
 
 	}

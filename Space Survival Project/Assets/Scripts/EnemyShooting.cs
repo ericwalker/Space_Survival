@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShooting : MonoBehaviour {
+public class EnemyShooting : MonoBehaviour {
 
 	public GameObject bulletPrefab;
 	int bulletLayer;
 
-	public float fireDelay = 0.25f;
+	public float fireDelay = 0.50f;
 	float coolDownTimer = 0;
-
 
 	void Start(){
 		bulletLayer = gameObject.layer;
@@ -20,7 +19,7 @@ public class PlayerShooting : MonoBehaviour {
 		coolDownTimer -= Time.deltaTime;
 
 		// when the space is pressed down
-		if (Input.GetButton ("Fire1") && coolDownTimer <= 0) {
+		if (coolDownTimer <= 0) {
 
 			Debug.Log ("Pew!");
 			// SHOOT the bullets
@@ -28,7 +27,9 @@ public class PlayerShooting : MonoBehaviour {
 
 			Vector3 offset = transform.rotation * new Vector3 (0, 0.5f, 0);
 
-			Instantiate (bulletPrefab, transform.position + offset, transform.rotation);
+			GameObject bulletGO = (GameObject)Instantiate (bulletPrefab, transform.position + offset, transform.rotation);
+//			bulletGO.layer = gameObject.layer; // that will make the bulletGO be in vulnerable layer
+			bulletGO.layer = bulletLayer;
 		}
 
 	}

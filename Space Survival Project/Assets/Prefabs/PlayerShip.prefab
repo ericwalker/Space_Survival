@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 212758517053985026}
   - component: {fileID: 114274811794090720}
   - component: {fileID: 50988591940233360}
-  - component: {fileID: 61094758663931452}
   - component: {fileID: 114736308298215708}
   - component: {fileID: 114584562887787448}
+  - component: {fileID: 60652334064794148}
   m_Layer: 8
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -65,8 +65,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61094758663931452
-BoxCollider2D:
+--- !u!60 &60652334064794148
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -77,7 +77,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.11250001}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.35}
@@ -87,9 +87,24 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.99, y: 0.75}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.4572946, y: 0.11967076}
+      - {x: 0.35041076, y: 0.064321995}
+      - {x: 0.09200784, y: 0.21553123}
+      - {x: 0.067166425, y: 0.47493824}
+      - {x: -0.06729461, y: 0.47571704}
+      - {x: -0.09315514, y: 0.22100386}
+      - {x: -0.3592634, y: 0.05495758}
+      - {x: -0.4596512, y: 0.1250195}
+      - {x: -0.4384419, y: -0.06415905}
+      - {x: -0.35430244, y: -0.09708929}
+      - {x: -0.12143414, y: -0.14479463}
+      - {x: -0.052581448, y: -0.23893416}
+      - {x: 0.05786828, y: -0.23893413}
+      - {x: 0.11831814, y: -0.13950779}
+      - {x: 0.34659714, y: -0.11008148}
+      - {x: 0.42901555, y: -0.076515615}
 --- !u!114 &114274811794090720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -114,6 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626e050ae0f594194ad98635b5340827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1798529702179266, guid: f85c4311ba11c41948d0924c4b6b1cdb,
+    type: 2}
   fireDelay: 0.25
 --- !u!114 &114736308298215708
 MonoBehaviour:
@@ -127,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 2
+  invulnPeriod: 0.5
 --- !u!212 &212758517053985026
 SpriteRenderer:
   m_ObjectHideFlags: 1

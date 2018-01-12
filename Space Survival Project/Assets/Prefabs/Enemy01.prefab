@@ -19,10 +19,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4994649177889468}
-  - component: {fileID: 61681396108141618}
   - component: {fileID: 50544466350660784}
   - component: {fileID: 114101254522622278}
   - component: {fileID: 114805846536148668}
+  - component: {fileID: 114959628258215694}
+  - component: {fileID: 60887524026794034}
+  - component: {fileID: 114443476872385910}
   m_Layer: 9
   m_Name: Enemy01
   m_TagString: Untagged
@@ -40,7 +42,7 @@ GameObject:
   - component: {fileID: 4850673563551770}
   - component: {fileID: 212756900666039780}
   m_Layer: 0
-  m_Name: enemyBlack1
+  m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1519261345001922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.07, y: 0.77, z: 0}
+  m_LocalPosition: {x: 3.33, y: 0.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4850673563551770}
@@ -93,8 +95,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61681396108141618
-BoxCollider2D:
+--- !u!60 &60887524026794034
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -108,16 +110,24 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.93, y: 0.84}
-    newSize: {x: 0.93, y: 0.84}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.93, y: 0.84}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.00017952919, y: 0.37270194}
+      - {x: -0.22670436, y: 0.39604396}
+      - {x: -0.41272736, y: -0.15707749}
+      - {x: -0.28430676, y: -0.3851558}
+      - {x: -0.1267674, y: -0.32481238}
+      - {x: 0.13459086, y: -0.32252035}
+      - {x: 0.2957306, y: -0.38522875}
+      - {x: 0.42480016, y: -0.16311389}
+      - {x: 0.23453617, y: 0.38753986}
 --- !u!114 &114101254522622278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,6 +141,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   invulnPeriod: 0
+--- !u!114 &114443476872385910
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1519261345001922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71aaa18a511c240879226e6bd1bc9aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1798529702179266, guid: f85c4311ba11c41948d0924c4b6b1cdb,
+    type: 2}
+  fireDelay: 0.5
 --- !u!114 &114805846536148668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,6 +166,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7041ab671dc534f8c8e176ca2239b63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotSpeed: 90
+--- !u!114 &114959628258215694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1519261345001922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79381f4db0226441ba9c3859e7948f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 3
 --- !u!212 &212756900666039780
 SpriteRenderer:
   m_ObjectHideFlags: 1

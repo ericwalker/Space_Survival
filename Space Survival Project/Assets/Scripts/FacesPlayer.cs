@@ -17,7 +17,7 @@ public class FacesPlayer : MonoBehaviour {
 	void Update () {
 		if (player == null) { // when the player is died or not yet exist
 			// Find the player's ship
-			GameObject go = GameObject.Find("PlayerShip");
+			GameObject go = GameObject.FindGameObjectWithTag("Player");
 
 			if (go != null) {
 				player = go.transform;
